@@ -11,7 +11,7 @@
     "postinstall": "husky install",
     "test:simple": "jest --passWithNoTests --coverage=false --watchAll",
     "test:complete": "jest --passWithNoTests --no-cache --colors --expand --verbose --watchAll",
-    "test:staged": "jest --passWithNoTests"
+    "test:staged": "jest --passWithNoTests --coverage=false"
   },
   "lint-staged": {
     "*.ts": [
