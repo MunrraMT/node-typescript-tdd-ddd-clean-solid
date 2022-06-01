@@ -4,6 +4,8 @@
     "module": "ES6", // colocar no package.js -> "type": "module"
     "target": "ES2019",
     "esModuleInterop": true,
-    "allowJs": true
+    "allowJs": true,
+    "noImplicitReturns": true,
+    "noImplicitAny": true
   }
 }
