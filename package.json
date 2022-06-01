@@ -1,0 +1,8 @@
+{
+  "name": "node-typescript-tdd-ddd-clean-solid",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/MunrraMT/node-typescript-tdd-ddd-clean-solid.git",
+  "author": "Andre Rodrigues Melgaço dos Santos <dev-asantos@outlook.com>",
+  "license": "MIT"
+}
