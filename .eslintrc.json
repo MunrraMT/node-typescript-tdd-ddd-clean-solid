@@ -22,6 +22,10 @@
         "jest"
     ],
     "rules": {
-        "class-methods-use-this": "off"
+        "class-methods-use-this": "off",
+        "import/no-unresolved": "off",
+        "import/extensions": "off",
+        "@typescript-eslint/no-unsafe-assignment": "off",
+        "@typescript-eslint/no-unsafe-member-access": "off"
     }
 }
