@@ -9,12 +9,14 @@
   "private": true,
   "scripts": {
     "postinstall": "husky install",
-    "test": "jest --passWithNoTests --no-cache --colors --expand --verbose --watchAll"
+    "test": "jest --passWithNoTests --no-cache --colors --expand --verbose --watchAll",
+    "test:staged": "jest"
   },
   "lint-staged": {
     "*.ts": [
       "eslint --cache --fix",
-      "prettier --write"
+      "prettier --write",
+      "yarn test:staged"
     ]
   },
   "devDependencies": {
