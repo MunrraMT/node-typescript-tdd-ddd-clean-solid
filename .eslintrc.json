@@ -1,12 +1,14 @@
 {
     "env": {
         "es2021": true,
-        "node": true
+        "node": true,
+        "jest/globals": true
     },
     "extends": [
         "airbnb-base",
         "prettier",
         "eslint:recommended",
+        "plugin:jest/recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:@typescript-eslint/recommended-requiring-type-checking"
     ],
@@ -16,16 +18,8 @@
     },
     "plugins": [
         "@typescript-eslint",
-        "prettier"
+        "prettier",
+        "jest"
     ],
-    "rules": {
-        "@typescript-eslint/array-type": [
-            "error",
-            "array"
-        ],
-        "@typescript-eslint/consistent-type-definitions": [
-            "error",
-            "type"
-        ]
-    }
+    "rules": {}
 }
