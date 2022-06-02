@@ -3,6 +3,9 @@ import MissingParamError from '../erros/missin-param-error';
 import InvalidParamError from '../erros/invalid-param-error';
 import IEmailValidator from '../protocols/iemail-validator';
 import IController from '../protocols/icontroller';
+import ServerError from '../erros/server-error';
+import EmailValidatorStubTrue from '../stubs/email-validator-stub-return-true';
+import EmailValidatorStubThrow from '../stubs/email-validator-stub-throw';
 
 type SutTypes = {
   sut: IController;
@@ -10,13 +13,7 @@ type SutTypes = {
 };
 
 const makeSut = (): SutTypes => {
-  class EmailValidatorStub implements IEmailValidator {
-    isValid(email: string): boolean {
-      return true;
-    }
-  }
-
-  const emailValidatorStub = new EmailValidatorStub();
+  const emailValidatorStub = new EmailValidatorStubTrue();
   const sut = new SignUpController(emailValidatorStub);
   return { sut, emailValidatorStub };
 };
@@ -115,5 +112,23 @@ describe('SignUpController', () => {
 
     sut.handle(httpRequest);
     expect(isValidSpy).toHaveBeenCalledWith('any_email@email.com');
+  });
+
+  test('Should return 500 if EmailValidator throws', () => {
+    const emailValidatorStub = new EmailValidatorStubThrow();
+    const sut = new SignUpController(emailValidatorStub);
+
+    const httpRequest = {
+      body: {
+        name: 'any_name',
+        email: 'any_email@email.com',
+        password: 'any_password',
+        passwordConfirmation: 'any_password',
+      },
+    };
+    const httpResponse = sut.handle(httpRequest);
+
+    expect(httpResponse.statusCode).toBe(500);
+    expect(httpResponse.body).toEqual(new ServerError());
   });
 });
