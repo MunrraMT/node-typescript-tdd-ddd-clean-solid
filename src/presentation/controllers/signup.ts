@@ -1,7 +1,7 @@
 import { HttpRequest, HttpResponse } from "../protocols/http";
 import MissingParamError from "../erros/missin-param-error";
 import badRequest from "../helpers/http-helper";
-import IController from "../protocols/controller";
+import IController from "../protocols/icontroller";
 
 class SignUpController implements IController {
   handle(httpRequest: HttpRequest): HttpResponse {
