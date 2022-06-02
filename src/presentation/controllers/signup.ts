@@ -5,7 +5,12 @@ import IController from "../protocols/icontroller";
 
 class SignUpController implements IController {
   handle(httpRequest: HttpRequest): HttpResponse {
-    const requeridFields = ["name", "email", "password"];
+    const requeridFields = [
+      "name",
+      "email",
+      "password",
+      "passwordConfirmation",
+    ];
     for (const field of requeridFields) {
       if (!httpRequest.body[field]) {
         return badRequest(new MissingParamError(field));
