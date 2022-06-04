@@ -1,8 +1,7 @@
 import { InvalidParamError, MissingParamError, ServerError } from '../errors';
 import { IController, IEmailValidator } from '../protocols';
+import { EmailValidatorStubThrow, EmailValidatorStubTrue } from '../stubs';
 import SignUpController from './signup';
-import EmailValidatorStubTrue from '../stubs/email-validator-stub-return-true';
-import EmailValidatorStubThrow from '../stubs/email-validator-stub-throw';
 
 type SutTypes = {
   sut: IController;
