@@ -1,10 +1,9 @@
 import { IHttpRequest, IHttpResponse } from '../protocols/http';
 import MissingParamError from '../erros/missin-param-error';
-import badRequest from '../helpers/http-helper';
+import { badRequest, serverError } from '../helpers/http-helper';
 import IController from '../protocols/icontroller';
 import IEmailValidator from '../protocols/iemail-validator';
 import InvalidParamError from '../erros/invalid-param-error';
-import ServerError from '../erros/server-error';
 
 class SignUpController implements IController {
   private readonly emailValidator;
@@ -32,7 +31,7 @@ class SignUpController implements IController {
 
       return { statusCode: 200, body: '' };
     } catch (error) {
-      return { statusCode: 500, body: new ServerError() };
+      return serverError();
     }
   }
 }
