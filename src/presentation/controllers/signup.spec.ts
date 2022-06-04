@@ -1,7 +1,7 @@
 import { InvalidParamError, MissingParamError, ServerError } from '../errors';
 import { IController, IEmailValidator } from '../protocols';
-import { EmailValidatorStubThrow, EmailValidatorStubTrue } from '../stubs';
 import SignUpController from './signup';
+import EmailValidatorStub from '../stubs/email-validator-stub';
 
 type SutTypes = {
   sut: IController;
@@ -9,7 +9,7 @@ type SutTypes = {
 };
 
 const makeSut = (): SutTypes => {
-  const emailValidatorStub = new EmailValidatorStubTrue();
+  const emailValidatorStub = new EmailValidatorStub();
   const sut = new SignUpController(emailValidatorStub);
   return { sut, emailValidatorStub };
 };
@@ -111,9 +111,10 @@ describe('SignUpController', () => {
   });
 
   test('Should return 500 if EmailValidator throws', () => {
-    const emailValidatorStub = new EmailValidatorStubThrow();
-    const sut = new SignUpController(emailValidatorStub);
-
+    const { sut, emailValidatorStub } = makeSut();
+    jest.spyOn(emailValidatorStub, 'isValid').mockImplementationOnce(() => {
+      throw new Error();
+    });
     const httpRequest = {
       body: {
         name: 'any_name',
