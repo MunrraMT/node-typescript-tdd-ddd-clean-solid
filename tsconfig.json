@@ -4,8 +4,17 @@
     "module": "ES6", // colocar no package.js -> "type": "module"
     "target": "ES2019",
     "esModuleInterop": true,
+    "moduleResolution": "Node", // resolve problema de importação
     "allowJs": true,
     "noImplicitReturns": true,
-    "noImplicitAny": true
+    "noImplicitAny": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": false,
+    "baseUrl": ".",
+    "paths": {
+      "~/*": [
+        "src/*"
+      ]
+    }
   }
 }

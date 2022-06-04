@@ -1,4 +1,4 @@
-import IEmailValidator from '../protocols/iemail-validator';
+import { IEmailValidator } from '../protocols';
 
 class EmailValidatorStubThrow implements IEmailValidator {
   isValid(email: string): boolean {

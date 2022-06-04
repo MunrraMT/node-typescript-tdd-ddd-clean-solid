@@ -1,11 +1,6 @@
-import {
-  MissingParamError,
-  InvalidParamError,
-  ServerError,
-} from '../erros/index';
+import { InvalidParamError, MissingParamError, ServerError } from '../errors';
+import { IController, IEmailValidator } from '../protocols';
 import SignUpController from './signup';
-import IEmailValidator from '../protocols/iemail-validator';
-import IController from '../protocols/icontroller';
 import EmailValidatorStubTrue from '../stubs/email-validator-stub-return-true';
 import EmailValidatorStubThrow from '../stubs/email-validator-stub-throw';
 
