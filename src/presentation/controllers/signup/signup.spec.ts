@@ -1,9 +1,16 @@
-import { InvalidParamError, MissingParamError, ServerError } from '../errors';
-import { IController, IEmailValidator } from '../protocols';
-import { IAddAccount } from '~/domain/use-cases/add-account';
+import {
+  InvalidParamError,
+  MissingParamError,
+  ServerError,
+} from '~/presentation/errors';
+import {
+  AddAccountStub,
+  EmailValidatorStub,
+  IAddAccount,
+  IController,
+  IEmailValidator,
+} from './signup-protocols';
 import SignUpController from './signup';
-import EmailValidatorStub from '../stubs/email-validator-stub';
-import AddAccountStub from '../stubs/add-account-stub';
 
 type SutTypes = {
   sut: IController;
