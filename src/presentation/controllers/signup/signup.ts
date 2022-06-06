@@ -22,7 +22,7 @@ class SignUpController implements IController {
     this.addAccount = addAccount;
   }
 
-  handle(httpRequest: IHttpRequest): IHttpResponse {
+  async handle(httpRequest: IHttpRequest): Promise<IHttpResponse> {
     try {
       const requeridFields = [
         'name',
@@ -46,7 +46,7 @@ class SignUpController implements IController {
       const isValidEmail = this.emailValidator.isValid(email);
       if (!isValidEmail) return badRequest(new InvalidParamError('email'));
 
-      const account = this.addAccount.add({
+      const account = await this.addAccount.add({
         name,
         email,
         password,
