@@ -6,7 +6,11 @@ import {
   IHttpResponse,
 } from './signup-protocols';
 import { InvalidParamError, MissingParamError } from '~/presentation/errors';
-import { badRequest, serverError } from '~/presentation/helpers/http-helper';
+import {
+  badRequest,
+  serverError,
+  serverOk,
+} from '~/presentation/helpers/http-helper';
 
 class SignUpController implements IController {
   private readonly emailValidator;
@@ -48,7 +52,7 @@ class SignUpController implements IController {
         password,
       });
 
-      return { statusCode: 200, body: account };
+      return serverOk(account);
     } catch (error) {
       return serverError();
     }

@@ -11,4 +11,9 @@ const serverError = (): IHttpResponse => ({
   body: new ServerError(),
 });
 
-export { badRequest, serverError };
+const serverOk = (data: any): IHttpResponse => ({
+  statusCode: 200,
+  body: data,
+});
+
+export { badRequest, serverError, serverOk };
