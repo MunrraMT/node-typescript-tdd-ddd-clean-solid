@@ -9,11 +9,11 @@
   "private": true,
   "scripts": {
     "postinstall": "husky install",
-    "test": "jest --passWithNoTests --coverage=false",
+    "test": "jest --passWithNoTests  --no-cache --coverage=false",
     "test:staged": "yarn test -- --silent --maxWorkers=25% --onlyChanged",
     "test:unit": "yarn test -- --watch --maxWorkers=25% -c ./jest-unit-config.js",
     "test:integration": "yarn test -- --runInBand --watch -c ./jest-integration-config.js",
-    "test:ci": "yarn test -- --coverage=true --no-cache --colors --expand --verbose --runInBand"
+    "test:ci": "yarn test -- --coverage=true --colors --expand --verbose --runInBand"
   },
   "lint-staged": {
     "*.ts": [
