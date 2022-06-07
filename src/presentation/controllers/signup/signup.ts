@@ -1,9 +1,9 @@
 import {
-  IAddAccount,
-  IController,
-  IEmailValidator,
-  IHttpRequest,
-  IHttpResponse,
+  InterfaceAddAccount,
+  InterfaceController,
+  InterfaceEmailValidator,
+  InterfaceHttpRequest,
+  InterfaceHttpResponse,
 } from './signup-protocols';
 import { InvalidParamError, MissingParamError } from '~/presentation/errors';
 import {
@@ -12,17 +12,22 @@ import {
   serverOk,
 } from '~/presentation/helpers/http-helper';
 
-class SignUpController implements IController {
+class SignUpController implements InterfaceController {
   private readonly emailValidator;
 
   private readonly addAccount;
 
-  constructor(emailValidator: IEmailValidator, addAccount: IAddAccount) {
+  constructor(
+    emailValidator: InterfaceEmailValidator,
+    addAccount: InterfaceAddAccount
+  ) {
     this.emailValidator = emailValidator;
     this.addAccount = addAccount;
   }
 
-  async handle(httpRequest: IHttpRequest): Promise<IHttpResponse> {
+  async handle(
+    httpRequest: InterfaceHttpRequest
+  ): Promise<InterfaceHttpResponse> {
     try {
       const requeridFields = [
         'name',

@@ -1,17 +1,17 @@
 import { ServerError } from '../errors';
-import { IHttpResponse } from '../protocols';
+import { InterfaceHttpResponse } from '../protocols';
 
-const badRequest = (error: Error): IHttpResponse => ({
+const badRequest = (error: Error): InterfaceHttpResponse => ({
   statusCode: 400,
   body: error,
 });
 
-const serverError = (): IHttpResponse => ({
+const serverError = (): InterfaceHttpResponse => ({
   statusCode: 500,
   body: new ServerError(),
 });
 
-const serverOk = (data: any): IHttpResponse => ({
+const serverOk = (data: any): InterfaceHttpResponse => ({
   statusCode: 200,
   body: data,
 });

@@ -1,7 +1,7 @@
 import { IHttpRequest, IHttpResponse } from './interface-http';
 
-interface IController {
+interface InterfaceController {
   handle(httpRequest: IHttpRequest): Promise<IHttpResponse>;
 }
 
-export default IController;
+export default InterfaceController;

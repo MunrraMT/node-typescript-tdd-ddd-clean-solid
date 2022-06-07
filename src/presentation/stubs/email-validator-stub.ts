@@ -1,9 +1,9 @@
-import IEmailValidator from '../protocols/interface-email-validator';
+import InterfaceEmailValidator from '../protocols/interface-email-validator';
 
-class EmailValidatorStub implements IEmailValidator {
+class StubEmailValidator implements InterfaceEmailValidator {
   isValid(email: string): boolean {
     return true;
   }
 }
 
-export default EmailValidatorStub;
+export default StubEmailValidator;

@@ -1,4 +1,4 @@
-import { IHttpRequest, IHttpResponse } from './interface-http';
-import IController from './interface-controller';
+import { InterfaceHttpRequest, InterfaceHttpResponse } from './interface-http';
+import InterfaceController from './interface-controller';
 
-export { IController, IHttpRequest, IHttpResponse };
+export { InterfaceController, InterfaceHttpRequest, InterfaceHttpResponse };

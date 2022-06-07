@@ -1,8 +1,11 @@
-import IAccountModel from '~/domain/models/account';
-import { IAddAccount, IAddAccountModel } from '~/domain/use-cases/add-account';
+import InterfaceAccountModel from '~/domain/models/interface-account';
+import {
+  InterfaceAddAccount,
+  InterfaceAddAccountModel,
+} from '~/domain/use-cases/interface-add-account';
 
-class AddAccountStub implements IAddAccount {
-  async add(account: IAddAccountModel): Promise<IAccountModel> {
+class StubAddAccount implements InterfaceAddAccount {
+  async add(account: InterfaceAddAccountModel): Promise<InterfaceAccountModel> {
     const fakeAccount = {
       id: 'valid_id',
       name: 'valid_name',
@@ -14,4 +17,4 @@ class AddAccountStub implements IAddAccount {
   }
 }
 
-export default AddAccountStub;
+export default StubAddAccount;

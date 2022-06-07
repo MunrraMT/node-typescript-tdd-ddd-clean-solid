@@ -1,5 +1,5 @@
-interface IEmailValidator {
+interface InterfaceEmailValidator {
   isValid(email: any): boolean;
 }
 
-export default IEmailValidator;
+export default InterfaceEmailValidator;

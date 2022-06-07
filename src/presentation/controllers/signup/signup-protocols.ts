@@ -1,16 +1,23 @@
-import { IController, IHttpRequest, IHttpResponse } from '../../protocols';
-import IEmailValidator from '../../protocols/interface-email-validator';
-import { IAddAccount, IAddAccountModel } from '~/domain/use-cases/add-account';
-import EmailValidatorStub from '../../stubs/email-validator-stub';
-import AddAccountStub from '../../stubs/add-account-stub';
+import {
+  InterfaceController,
+  InterfaceHttpRequest,
+  InterfaceHttpResponse,
+} from '../../protocols';
+import InterfaceEmailValidator from '../../protocols/interface-email-validator';
+import {
+  InterfaceAddAccount,
+  InterfaceAddAccountModel,
+} from '~/domain/use-cases/interface-add-account';
+import StubEmailValidator from '../../stubs/email-validator-stub';
+import StubAddAccount from '../../stubs/add-account-stub';
 
 export {
-  AddAccountStub,
-  EmailValidatorStub,
-  IAddAccount,
-  IAddAccountModel,
-  IController,
-  IEmailValidator,
-  IHttpRequest,
-  IHttpResponse,
+  StubAddAccount,
+  StubEmailValidator,
+  InterfaceAddAccount,
+  InterfaceAddAccountModel,
+  InterfaceController,
+  InterfaceEmailValidator,
+  InterfaceHttpRequest,
+  InterfaceHttpResponse,
 };
