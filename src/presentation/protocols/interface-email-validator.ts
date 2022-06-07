@@ -1,5 +1,5 @@
 interface InterfaceEmailValidator {
-  isValid(email: any): boolean;
+  isValid(email: string): boolean;
 }
 
 export default InterfaceEmailValidator;
