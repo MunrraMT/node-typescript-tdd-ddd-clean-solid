@@ -54,6 +54,7 @@ class SignUpController implements IController {
 
       return serverOk(account);
     } catch (error) {
+      console.error(error);
       return serverError();
     }
   }

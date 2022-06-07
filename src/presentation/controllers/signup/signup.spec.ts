@@ -25,6 +25,11 @@ const makeSut = (): SutTypes => {
   return { sut, emailValidatorStub, addAccountStub };
 };
 
+beforeEach(() => {
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  jest.spyOn(console, 'error').mockImplementation(() => {});
+});
+
 describe('SignUpController', () => {
   test('Should return 400 if no name is provided', async () => {
     const { sut } = makeSut();
