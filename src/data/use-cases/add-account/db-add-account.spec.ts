@@ -1,4 +1,4 @@
-import InterfaceEncrypter from '~/data/protocols/interface-encrypter';
+import { InterfaceEncrypter } from './db-add-account-protocols';
 import DbAddAccount from './db-add-account';
 
 type SutTypes = {

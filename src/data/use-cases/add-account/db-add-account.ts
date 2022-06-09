@@ -1,9 +1,9 @@
 import {
+  InterfaceAccountModel,
   InterfaceAddAccount,
   InterfaceAddAccountModel,
-} from '~/domain/use-cases/interface-add-account';
-import InterfaceAccountModel from '~/domain/models/interface-account';
-import InterfaceEncrypter from '~/data/protocols/interface-encrypter';
+  InterfaceEncrypter,
+} from './db-add-account-protocols';
 
 class DbAddAccount implements InterfaceAddAccount {
   private readonly encrypter;
