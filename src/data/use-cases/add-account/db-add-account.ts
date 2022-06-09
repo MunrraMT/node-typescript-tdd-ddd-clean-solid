@@ -24,12 +24,12 @@ class DbAddAccount implements InterfaceAddAccount {
   ): Promise<InterfaceAccountModel> {
     const { password } = accountData;
     const hashedPassword = await this.encrypter.encrypt(password);
-    await this.addAccountRepository.add(
+    const account = await this.addAccountRepository.add(
       Object.assign(accountData, { password: hashedPassword })
     );
 
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    return Promise.resolve(null);
+    return Promise.resolve(account);
   }
 }
 
