@@ -9,5 +9,10 @@ export default {
     '^~/(.*)$': '<rootDir>/src/$1',
   },
   testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
-  coveragePathIgnorePatterns: ['<rootDir>/node_modules/', 'interface', 'index'],
+  coveragePathIgnorePatterns: [
+    '<rootDir>/node_modules/',
+    'interface',
+    'protocols',
+    'index',
+  ],
 };
