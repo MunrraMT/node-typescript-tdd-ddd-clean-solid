@@ -28,7 +28,6 @@ class DbAddAccount implements InterfaceAddAccount {
       Object.assign(accountData, { password: hashedPassword })
     );
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return Promise.resolve(account);
   }
 }
