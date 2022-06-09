@@ -1,28 +1,26 @@
-import { InterfaceEncrypter } from './db-add-account-protocols';
+import {
+  InterfaceAddAccountRepository,
+  InterfaceEncrypter,
+} from './db-add-account-protocols';
 import DbAddAccount from './db-add-account';
+import makeEncrypter from './stubs/stub-encrypter';
+import makeAddAccountRepository from './stubs/stub-add-account-repository.ts';
 
 type SutTypes = {
   sut: DbAddAccount;
   stubEncrypter: InterfaceEncrypter;
-};
-
-const makeEncrypter = (): InterfaceEncrypter => {
-  class StubEncrypter implements InterfaceEncrypter {
-    async encrypt(value: string): Promise<string> {
-      return Promise.resolve('hashed_password');
-    }
-  }
-
-  return new StubEncrypter();
+  stubAddAccountRepository: InterfaceAddAccountRepository;
 };
 
 const makeSut = (): SutTypes => {
   const stubEncrypter = makeEncrypter();
-  const sut = new DbAddAccount(stubEncrypter);
+  const stubAddAccountRepository = makeAddAccountRepository();
+  const sut = new DbAddAccount(stubEncrypter, stubAddAccountRepository);
 
   return {
     sut,
     stubEncrypter,
+    stubAddAccountRepository,
   };
 };
 
@@ -53,5 +51,23 @@ describe('DbAddAccount UseCase', () => {
     };
     const promise = sut.add(accountData);
     await expect(promise).rejects.toThrow();
+  });
+
+  test('Should call AddAccountRepository with correct values', async () => {
+    const { stubAddAccountRepository, sut } = makeSut();
+    const spyAdd = jest.spyOn(stubAddAccountRepository, 'add');
+    const accountData = {
+      name: 'valid_name',
+      email: 'valid_email',
+      password: 'valid_password',
+    };
+
+    await sut.add(accountData);
+
+    expect(spyAdd).toHaveBeenCalledWith({
+      name: 'valid_name',
+      email: 'valid_email',
+      password: 'hashed_password',
+    });
   });
 });
