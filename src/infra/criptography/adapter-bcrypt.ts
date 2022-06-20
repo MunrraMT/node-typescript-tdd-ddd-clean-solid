@@ -10,8 +10,8 @@ class AdapterBcrypter implements InterfaceEncrypter {
   }
 
   async encrypt(value: string): Promise<string> {
-    await bcrypt.hash(value, this.salt);
-    return null;
+    const newHash = await bcrypt.hash(value, this.salt);
+    return newHash;
   }
 }
 
