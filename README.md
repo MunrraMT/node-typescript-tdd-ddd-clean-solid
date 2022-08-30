@@ -1,5 +1,7 @@
 # NodeJs, Typescript, TDD, DDD, Clean Architecture e SOLID
+
 ## Aprenda de verdade a criar uma API completa com Typescript utilizando TDD, Clean Architecture, Design Patterns e SOLID.
+
 ### Criador do curso:
 
 Rodrigo Manguinho
@@ -19,3 +21,9 @@ Além de tudo isso irei mostrar na prática como utilizar o Git, Docker, Jest, C
 Vamos falar sobre o uso correto de middlewares para gerenciamento de permissões nas rotas e segurança na geração de senhas.
 
 Esse curso fará você evoluir mais do que anos de faculdade. Mostrarei pra você, de forma objetiva, todos os conhecimentos que obtive ao longo dos anos de minha carreira. Você terá a oportunidade de evoluir em semanas ou meses o que um programador sênior leva anos para aprender.
+
+### git alias
+
+s = !git status
+c = !git add . && git commit -m
+l = !git log --pretty=format:'%C(blue)%h%C(red)%d %C (white)%s - %C(cyan)%cn, %C(green)%cr'
