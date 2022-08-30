@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/MunrraMT/node-typescript-tdd-ddd-clean-solid/issues"
   },
-  "homepage": "https://github.com/MunrraMT/node-typescript-tdd-ddd-clean-solid#readme"
+  "homepage": "https://github.com/MunrraMT/node-typescript-tdd-ddd-clean-solid#readme",
+  "devDependencies": {
+    "git-commit-msg-linter": "^4.1.3"
+  }
 }
